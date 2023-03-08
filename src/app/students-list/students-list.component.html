@@ -1,0 +1,52 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">name</th>
+      <th scope="col">age</th>
+      <th scope="col">delete</th>
+      <th scope="col">Update</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentsArray; let i = index">
+      <td>{{ i +1}}</td>
+      <td>{{ student.id }}</td>
+
+      <!-- student name -->
+      <td *ngIf="show(this.student.id)">{{ student.name }}</td>
+      <td *ngIf="showInput(this.student.id)">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="student.name"
+          value="{{ student.name }}"
+        />
+        <!-- student age -->
+      </td>
+      <td *ngIf="show(this.student.id)">{{ student.age }}</td>
+      <td *ngIf="showInput(this.student.id)">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="student.age"
+          value="{{ student.age }}"
+        />
+      </td>
+      <td>
+        <app-delete-student [id]="student.id"></app-delete-student>
+      </td>
+      <td *ngIf="!updatable">
+        <button class="btn btn-primary" (click)="isUpdateable(this.student.id)">
+          Update
+        </button>
+      </td>
+      <td *ngIf="updatable">
+        <button class="btn btn-success" (click)="save(this.student.id)">
+          save
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

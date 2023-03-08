@@ -1,0 +1,32 @@
+<div class="form-group">
+  <label for="id"></label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="id"
+    name="id"
+    placeholder="ID"
+  />
+</div>
+<div class="form-group">
+  <label for="name"></label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="name"
+    name="name"
+    placeholder="Name"
+  />
+</div>
+<div class="form-group">
+  <label for="age"></label>
+  <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="age"
+    name="age"
+    placeholder="Age"
+  />
+  <button class="btn btn-primary" (click)="add($event)">Add</button>
+</div>
+
